@@ -27,7 +27,7 @@ export class FloatClient extends SapphireClient {
     public stopwatch: Stopwatch
 
     public async start() {
-        //await this.login(process.env.AUTHORIZATION)
+        await this.login(process.env.AUTHORIZATION)
 
         this.ogma.log(`Logged in as ${this.user?.tag}`)
         this.ogma.log(

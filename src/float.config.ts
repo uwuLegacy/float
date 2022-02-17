@@ -3,14 +3,19 @@ import { join } from 'path'
 
 export const config: FloatConfig = {
     application: 'Float',
-    owners: ['<your-discord-id>'],
+    owners: ['392264789360902156'],
 
     env: {
         logLevel: 'DEBUG',
     },
 
     client: {
-        intents: ['Guilds'],
+        intents: [
+            'GUILDS',
+            'GUILD_MEMBERS',
+            'GUILD_MESSAGES',
+            'GUILD_MESSAGE_REACTIONS',
+        ],
 
         baseUserDirectory: join(process.cwd(), 'dist/modules'),
         caseInsensitiveCommands: true,
