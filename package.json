@@ -7,7 +7,8 @@
     "private": true,
     "scripts": {
         "build": "tsup",
-        "start": "node --enable-source-maps --experimental-specifier-resolution=node dist/main.js",
+        "launch": "node --enable-source-maps --experimental-specifier-resolution=node dist/main.js",
+        "start": "pnpm run build && pnpm run launch",
         "watch": "tsup --watch",
         "dev": "tsup --watch --onSuccess \"pnpm start\"",
         "typecheck": "tsc --noEmit",
@@ -45,6 +46,7 @@
         "eslint": "^8.9.0",
         "eslint-config-prettier": "^8.3.0",
         "prettier": "^2.5.1",
+        "prisma": "^3.9.2",
         "tsup": "^5.11.13",
         "typescript": "^4.7.0-dev.20220215"
     },
@@ -52,6 +54,7 @@
         "@discordjs/builders": "^0.12.0",
         "@ogma/common": "^1.0.0",
         "@ogma/logger": "^2.2.0",
+        "@prisma/client": "^3.9.2",
         "@sapphire/decorators": "^4.2.4",
         "@sapphire/discord-utilities": "^2.8.0",
         "@sapphire/discord.js-utilities": "^4.8.0",

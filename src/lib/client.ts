@@ -3,13 +3,15 @@ import { FloatConfig } from './config/config.interface'
 import { Ogma, OgmaPrintOptions } from '@ogma/logger'
 import '@sapphire/pieces'
 import { Stopwatch } from '@sapphire/stopwatch'
+import Prisma from '@prisma/client'
+import prisma from './prisma'
 
 export class FloatClient extends SapphireClient {
     public constructor(public readonly config: FloatConfig) {
         super(config.client)
 
         this.stopwatch = new Stopwatch()
-
+        this.prisma = prisma
         this.ogma = new Ogma({
             application: config.application,
             context: 'FloatClient',
@@ -18,13 +20,12 @@ export class FloatClient extends SapphireClient {
 
         this.setupStoreEventHandlers()
 
-        this.ogma.log(
-            `Client constructed , took ${Math.round(this.stopwatch.duration)}ms`
-        )
+        this.ogma.log(`Client constructed`)
     }
 
     public ogma: Ogma
     public stopwatch: Stopwatch
+    public prisma: Prisma.PrismaClient
 
     public async start() {
         await this.login(process.env.AUTHORIZATION)
