@@ -46,7 +46,7 @@ export class FloatClient extends SapphireClient {
     }
 }
 
-declare module '@sapphire/framework' {
+declare module '@sapphire/pieces' {
     interface Container {
         float: FloatClient
     }
