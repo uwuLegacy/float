@@ -1,7 +1,7 @@
 import { SapphireClient, Store } from '@sapphire/framework'
 import { FloatConfig } from './config/config.interface'
 import { Ogma, OgmaPrintOptions } from '@ogma/logger'
-import '@sapphire/pieces'
+import { container } from '@sapphire/pieces'
 import { Stopwatch } from '@sapphire/stopwatch'
 import Prisma from '@prisma/client'
 import prisma from './prisma'
@@ -21,6 +21,7 @@ export class FloatClient extends SapphireClient {
         this.setupStoreEventHandlers()
 
         this.ogma.log(`Client constructed`)
+        container.float = this
     }
 
     public ogma: Ogma

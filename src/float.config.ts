@@ -17,6 +17,8 @@ export const config: FloatConfig = {
             'GUILD_MESSAGE_REACTIONS',
         ],
 
+        defaultPrefix: ['f.', ';'],
+
         baseUserDirectory: join(process.cwd(), 'dist/modules'),
         caseInsensitiveCommands: true,
         caseInsensitivePrefixes: true,
